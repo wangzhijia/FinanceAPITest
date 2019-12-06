@@ -1,14 +1,17 @@
+import os
+
 from configparser import ConfigParser
+
+from scripts.constants import CONFIGS_DIR,CONFIG_FILE_PATH
 
 
 class HandleConfig(ConfigParser):
     """
     定义处理配置文件的类
     """
-    def __init__(self):
+    def __init__(self, filename=None):
         super().__init__()
-        self.filename="testcase.conf"
-        self.read(self.filename,encoding="utf-8")
+        self.filename=filename
 
     def __call__(self, section="DEFAULT", option=None,is_eval=False,is_bool=False):
         """
@@ -19,6 +22,7 @@ class HandleConfig(ConfigParser):
         :param is_bool: 是否需要转化为bool类型，默认不转换
         :return:
         """
+        self.read(self.filename, encoding="utf-8")
         if option is None:
             return dict(self[section])
 
@@ -46,8 +50,23 @@ class HandleConfig(ConfigParser):
 
         return data
 
+    @classmethod
+    def write_config(cls, data, filename):
+        """
+        将数据写入配置文件
+        :param data: 字典类型的数据
+        :param filename: 配置文件名，字符串
+        :return:
+        """
+        one_config = cls(filename= filename)
+        for key in data:
+            one_config[key] = data[key]
+            filename=os.path.join(CONFIGS_DIR, filename)
+            with open(filename, "w", encoding="utf-8") as file:
+                one_config.write(file)
 
-do_config = HandleConfig()
+
+do_config = HandleConfig(CONFIG_FILE_PATH)
 
 if __name__ == '__main__':
-    config = HandleConfig()
+    config = HandleConfig(CONFIG_FILE_PATH)
