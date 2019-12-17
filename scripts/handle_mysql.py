@@ -55,9 +55,9 @@ class HandleMysql:
         self.conn.commit()
 
         if is_more:
-            result = self.cursor.fetchall()
-        else:
             result = self.cursor.fetchone()
+        else:
+            result = self.cursor.fetchall()
 
         return result
 
