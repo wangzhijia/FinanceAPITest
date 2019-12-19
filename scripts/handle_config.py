@@ -22,7 +22,7 @@ class HandleConfig(ConfigParser):
         :param is_bool: 是否需要转化为bool类型，默认不转换
         :return:
         """
-        self.read(self.filename, encoding="utf-8")
+        self.read(self.filename, encoding="utf8")
         if option is None:
             return dict(self[section])
 

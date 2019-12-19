@@ -1,7 +1,8 @@
 import os
 import time
 import logging
-from logging.handlers import RotatingFileHandler
+# from logging.handlers import RotatingFileHandler
+from concurrent_log_handler import ConcurrentRotatingFileHandler
 
 from scripts.handle_config import do_config
 from scripts.constants import LOGS_DIR
@@ -16,7 +17,7 @@ class HandleLog:
         self.case_logger.setLevel(do_config("log","logger_level"))
 
         console_handle = logging.StreamHandler()
-        file_handle = RotatingFileHandler(filename=do_config("log","log_filename"),
+        file_handle = ConcurrentRotatingFileHandler(filename=os.path.join(LOGS_DIR,do_config("log","log_filename")),
                                           maxBytes=do_config("log","maxBytes"),
                                           backupCount=do_config("log","backupCount"),
                                           encoding="utf-8")
@@ -40,7 +41,17 @@ class HandleLog:
 do_log = HandleLog().get_logger()
 
 if __name__ == '__main__':
-    pass
+    case_logger = HandleLog().get_logger()
+    for _ in range(100):
+        time.sleep(0.5)
+        case_logger.debug("这是debug日志")
+        case_logger.info("这是info日志")
+        case_logger.warning("这是warning日志")
+        case_logger.error("这是error日志")
+        case_logger.critical("这是critical日志")
+
+
+
 
 
 
