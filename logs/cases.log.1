@@ -1,13 +1,15 @@
-2019-12-18 15:49:49,658-[ERROR]-handle_log-case-[日志信息]这是error日志
-2019-12-18 15:49:49,658-[ERROR]-handle_log-case-[日志信息]这是error日志
-2019-12-18 15:49:49,674-[CRITICAL]-handle_log-case-[日志信息]这是critical日志
-2019-12-18 15:49:49,674-[CRITICAL]-handle_log-case-[日志信息]这是critical日志
-2019-12-18 15:49:50,188-[INFO]-handle_log-case-[日志信息]这是info日志
-2019-12-18 15:49:50,188-[INFO]-handle_log-case-[日志信息]这是info日志
-2019-12-18 15:49:50,188-[WARNING]-handle_log-case-[日志信息]这是warning日志
-2019-12-18 15:49:50,188-[WARNING]-handle_log-case-[日志信息]这是warning日志
-2019-12-18 15:49:50,204-[ERROR]-handle_log-case-[日志信息]这是error日志
-2019-12-18 15:49:50,204-[ERROR]-handle_log-case-[日志信息]这是error日志
-2019-12-18 15:49:50,204-[CRITICAL]-handle_log-case-[日志信息]这是critical日志
-2019-12-18 15:49:50,204-[CRITICAL]-handle_log-case-[日志信息]这是critical日志
-2019-12-18 15:49:50,734-[INFO]-handle_log-case-[日志信息]这是info日志
+2019-12-19 20:46:09,729-[ERROR]-test_01_register-case-[日志信息]具体异常为：'{"status":0,"code":"20109","data":null,"msg":"手机号格式不正确"}' != '{"status":0,"code":"20109","data":null,"msg":"手机号码格式不正确"}'
+- {"status":0,"code":"20109","data":null,"msg":"手机号格式不正确"}
++ {"status":0,"code":"20109","data":null,"msg":"手机号码格式不正确"}
+?                                                  +
+ : 测试【手机号-超过11位】失败
+2019-12-19 20:46:12,292-[ERROR]-test_01_register-case-[日志信息]具体异常为：'{"status":0,"code":"20110","data":null,"msg":"手机号已被注册"}' != '{"status":0,"code":"20110","data":null,"msg":"手机号码已被注册"}'
+- {"status":0,"code":"20110","data":null,"msg":"手机号已被注册"}
++ {"status":0,"code":"20110","data":null,"msg":"手机号码已被注册"}
+?                                                  +
+ : 测试【手机号已注册】失败
+2019-12-19 20:46:12,292-[ERROR]-test_01_register-case-[日志信息]具体异常为：'{"status":0,"code":"20110","data":null,"msg":"手机号已被注册"}' != '{"status":0,"code":"20110","data":null,"msg":"手机号码已被注册"}'
+- {"status":0,"code":"20110","data":null,"msg":"手机号已被注册"}
++ {"status":0,"code":"20110","data":null,"msg":"手机号码已被注册"}
+?                                                  +
+ : 测试【手机号已注册】失败
