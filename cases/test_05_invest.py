@@ -43,7 +43,7 @@ class TestInvest(unittest.TestCase):
         run_success_msg = do_config("msg", "success_result")
         run_fail_msg = do_config("msg", "fail_result")
 
-        new_data = Context.recharge_parameterization(data_namedtuple.data)
+        new_data = Context.invest_parameterization(data_namedtuple.data)
 
         new_url = do_config("api", "prefix_url") + data_namedtuple.url
 
